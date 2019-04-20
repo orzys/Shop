@@ -1,0 +1,68 @@
+<div class="row mt-4">
+  <div class="col-md-6">
+    <div class="row" style="height: 450px;">
+      <div class="col md-12 my-auto side-header">
+        <img src="/src/obrazek.png" class="mx-auto d-block">
+        <h1>User registration</h1>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <form [formGroup]="service.formModel" autocomplete="off" (submit)="onSubmit()">
+      <div class="form-group required">
+        <label>Username</label>
+        <input class="form-control" formControlName="UserName">
+        <label class="text-danger" *ngIf="service.formModel.get('UserName').touched && !!service.formModel.get('UserName').errors?.required">This field is mandatory.</label>
+      </div>
+      <div formGroupName="Passwords">
+        <div class="form-group required">
+          <label>Password</label>
+          <input type="password" class="form-control" formControlName="Password">
+          <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched && !!service.formModel.get('Passwords.Password').errors?.required">This field is mandatory.</label>
+          <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched && !!service.formModel.get('Passwords.Password').errors?.minlength">Minimum 6 characters required.</label>
+        </div>
+        <div class="form-group required">
+          <label>ConfirmPassword</label>
+          <input type="password" class="form-control" formControlName="ConfirmPassword">
+          <label class="text-danger" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && !!service.formModel.get('Passwords.ConfirmPassword').errors?.required">This field is mandatory.</label>
+          <label class="text-danger" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && !!service.formModel.get('Passwords.ConfirmPassword').errors?.passwordMismatch">Confirm Password does not match.</label>
+        </div>
+      </div>
+      <div class="form-group required">
+        <label>FirstName</label>
+        <input class="form-control" formControlName="FirstName">
+      </div>
+      <div class="form-group required">
+        <label>LastName</label>
+        <input class="form-control" formControlName="LastName">
+      </div>
+      <div class="form-group required">
+        <label>Email</label>
+        <input class="form-control" formControlName="Email">
+        <label class="text-danger" *ngIf="service.formModel.get('Email').touched && !!service.formModel.get('Email').errors?.email">Invalid email address.</label>
+      </div>
+      <div class="form-group required">
+        <label>City</label>
+        <input class="form-control" formControlName="City">
+      </div>
+      <div class="form-group required">
+        <label>ZipCode</label>
+        <input class="form-control" formControlName="ZipCode">
+      </div>
+      <div class="form-group">
+        <label>StreetName</label>
+        <input class="form-control" formControlName="StreetName">
+      </div>
+      <div class="form-group required">
+        <label>StreetNumber</label>
+        <input class="form-control" formControlName="StreetNumber">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-8 offset-md-2">
+          <button type="submit" class="btn btn-lg btn-block">Sign Up</button>
+          <button type="submit" class="btn btn-lg btn-block"></button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

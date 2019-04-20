@@ -1,0 +1,14 @@
+D:\cSharp projects\Shop\ShopApp\ShopApp\bin\Debug\netcoreapp2.2\ShopApp.deps.json
+D:\cSharp projects\Shop\ShopApp\ShopApp\bin\Debug\netcoreapp2.2\ShopApp.runtimeconfig.json
+D:\cSharp projects\Shop\ShopApp\ShopApp\bin\Debug\netcoreapp2.2\ShopApp.runtimeconfig.dev.json
+D:\cSharp projects\Shop\ShopApp\ShopApp\bin\Debug\netcoreapp2.2\ShopApp.dll
+D:\cSharp projects\Shop\ShopApp\ShopApp\bin\Debug\netcoreapp2.2\ShopApp.pdb
+D:\cSharp projects\Shop\ShopApp\ShopApp\obj\Debug\netcoreapp2.2\ShopApp.csprojAssemblyReference.cache
+D:\cSharp projects\Shop\ShopApp\ShopApp\obj\Debug\netcoreapp2.2\ShopApp.csproj.CoreCompileInputs.cache
+D:\cSharp projects\Shop\ShopApp\ShopApp\obj\Debug\netcoreapp2.2\ShopApp.RazorAssemblyInfo.cache
+D:\cSharp projects\Shop\ShopApp\ShopApp\obj\Debug\netcoreapp2.2\ShopApp.RazorAssemblyInfo.cs
+D:\cSharp projects\Shop\ShopApp\ShopApp\obj\Debug\netcoreapp2.2\ShopApp.AssemblyInfoInputs.cache
+D:\cSharp projects\Shop\ShopApp\ShopApp\obj\Debug\netcoreapp2.2\ShopApp.AssemblyInfo.cs
+D:\cSharp projects\Shop\ShopApp\ShopApp\obj\Debug\netcoreapp2.2\ShopApp.RazorTargetAssemblyInfo.cache
+D:\cSharp projects\Shop\ShopApp\ShopApp\obj\Debug\netcoreapp2.2\ShopApp.dll
+D:\cSharp projects\Shop\ShopApp\ShopApp\obj\Debug\netcoreapp2.2\ShopApp.pdb
