@@ -1,13 +1,4 @@
-<div class="row mt-4">
-  <div class="col-md-6">
-    <div class="row" style="height: 450px;">
-      <div class="col md-12 my-auto side-header">
-        <img src="/src/obrazek.png" class="mx-auto d-block">
-        <h1>User registration</h1>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6">
+
     <form [formGroup]="service.formModel" autocomplete="off" (submit)="onSubmit()">
       <div class="form-group required">
         <label>Username</label>
@@ -60,9 +51,7 @@
       <div class="form-row">
         <div class="form-group col-md-8 offset-md-2">
           <button type="submit" class="btn btn-lg btn-block">Sign Up</button>
-          <button type="submit" class="btn btn-lg btn-block"></button>
         </div>
       </div>
     </form>
-  </div>
-</div>
+
