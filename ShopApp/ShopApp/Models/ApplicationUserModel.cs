@@ -16,5 +16,6 @@ namespace ShopApp.Models
         public string ZipCode { get; set; }
         public string StreetName { get; set; }
         public string StreetNumber { get; set; }
+        public string Role { get; set; }
     }
 }
