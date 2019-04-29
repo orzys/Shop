@@ -1,3 +1,4 @@
+import { CategoryDetailService } from './shared/category-detail.service';
 import { UserService } from './shared/user.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -16,6 +17,9 @@ import { HomeComponent } from './home/home.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { CategoryDetailsComponent } from './category-details/category-details.component';
+import { CategoryDetailComponent } from './category-details/category-detail/category-detail.component';
+import { CategoryDetailListComponent } from './category-details/category-detail-list/category-detail-list.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,10 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
     LoginComponent,
     HomeComponent,
     AdminPanelComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
+    CategoryDetailsComponent,
+    CategoryDetailComponent,
+    CategoryDetailListComponent
   ],
   imports: [
     BrowserModule,
@@ -38,11 +45,13 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
     }),
     FormsModule
   ],
-  providers: [UserService, {
+  providers:
+    [UserService, {
     provide: HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
     multi: true
-  }],
+  },
+    CategoryDetailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

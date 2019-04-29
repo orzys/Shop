@@ -9,7 +9,7 @@ using ShopApp.Models;
 
 namespace ShopApp.Migrations
 {
-    [DbContext(typeof(AuthenticationContext))]
+    [DbContext(typeof(ApplicationContext))]
     [Migration("20190420163910_AllUserColumnsAdded")]
     partial class AllUserColumnsAdded
     {
