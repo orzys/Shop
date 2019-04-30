@@ -8,6 +8,7 @@ import { RegistrationComponent } from './user/registration/registration.componen
 import { UserComponent } from './user/user.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { BrandDetailsComponent } from './brand-details/brand-details.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/user/login', pathMatch: 'full'},
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
   {path: 'forbidden', component: ForbiddenComponent},
   {path: 'categories', component: CategoryDetailsComponent},
+  {path: 'brands', component: BrandDetailsComponent},
   {path: 'adminpanel', component: AdminPanelComponent, canActivate: [AuthGuard], data : {permittedRoles: ['Admin']}}
   ];
 

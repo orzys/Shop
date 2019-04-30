@@ -20,6 +20,10 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { CategoryDetailsComponent } from './category-details/category-details.component';
 import { CategoryDetailComponent } from './category-details/category-detail/category-detail.component';
 import { CategoryDetailListComponent } from './category-details/category-detail-list/category-detail-list.component';
+import { BrandDetailsComponent } from './brand-details/brand-details.component';
+import { BrandDetailComponent } from './brand-details/brand-detail/brand-detail.component';
+import { BrandDetailListComponent } from './brand-details/brand-detail-list/brand-detail-list.component';
+import { BrandDetailService } from './shared/brand-detail.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,10 @@ import { CategoryDetailListComponent } from './category-details/category-detail-
     ForbiddenComponent,
     CategoryDetailsComponent,
     CategoryDetailComponent,
-    CategoryDetailListComponent
+    CategoryDetailListComponent,
+    BrandDetailsComponent,
+    BrandDetailComponent,
+    BrandDetailListComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +58,8 @@ import { CategoryDetailListComponent } from './category-details/category-detail-
     useClass: AuthInterceptor,
     multi: true
   },
-    CategoryDetailService],
+    CategoryDetailService,
+    BrandDetailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
