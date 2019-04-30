@@ -17,6 +17,7 @@ namespace ShopApp.Models
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Brand> Brands { get; set; }
+        public DbSet<Sizes> Sizes { get; set; }
 
     }
 }

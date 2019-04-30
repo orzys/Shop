@@ -24,6 +24,10 @@ import { BrandDetailsComponent } from './brand-details/brand-details.component';
 import { BrandDetailComponent } from './brand-details/brand-detail/brand-detail.component';
 import { BrandDetailListComponent } from './brand-details/brand-detail-list/brand-detail-list.component';
 import { BrandDetailService } from './shared/brand-detail.service';
+import { SizeDetailsComponent } from './size-details/size-details.component';
+import { SizeDetailComponent } from './size-details/size-detail/size-detail.component';
+import { SizeDetailListComponent } from './size-details/size-detail-list/size-detail-list.component';
+import { SizeDetailService } from './shared/size-detail.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +43,10 @@ import { BrandDetailService } from './shared/brand-detail.service';
     CategoryDetailListComponent,
     BrandDetailsComponent,
     BrandDetailComponent,
-    BrandDetailListComponent
+    BrandDetailListComponent,
+    SizeDetailsComponent,
+    SizeDetailComponent,
+    SizeDetailListComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +66,8 @@ import { BrandDetailService } from './shared/brand-detail.service';
     multi: true
   },
     CategoryDetailService,
-    BrandDetailService],
+    BrandDetailService,
+    SizeDetailService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
