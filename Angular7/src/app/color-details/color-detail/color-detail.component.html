@@ -1,0 +1,30 @@
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+  <input type="hidden" name="BrandID" [value]="service.formData.ColorID">
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+            <i class="fas fa-list" [class.green-icon]="ColorName.valid" [class.red-icon]="ColorName.invalid && ColorName.touched"></i>
+        </div>
+      </div>
+      <input name="ColorName" #ColorName="ngModel"
+      [(ngModel)]="service.formData.ColorName"
+      class="form-control"
+      placeholder="Name" required minlength="3">
+    </div>
+  </div>
+  <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+              <i class="fas fa-comment-alt" [class.green-icon]="ColorCode.valid" [class.red-icon]="ColorCode.invalid && ColorCode.touched"></i>
+          </div>
+        </div>
+        <input type="color" name="ColorCode" #ColorCode="ngModel"
+        [(ngModel)]="service.formData.ColorCode" class="form-control">
+      </div>
+    </div>
+    <div class="form-group">
+      <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid"><i class="fas fa-save"></i> Submit</button>
+    </div>
+</form>

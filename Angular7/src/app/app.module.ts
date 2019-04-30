@@ -1,3 +1,4 @@
+import { ColorDetailService } from './shared/color-detail.service';
 import { CategoryDetailService } from './shared/category-detail.service';
 import { UserService } from './shared/user.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -28,6 +29,9 @@ import { SizeDetailsComponent } from './size-details/size-details.component';
 import { SizeDetailComponent } from './size-details/size-detail/size-detail.component';
 import { SizeDetailListComponent } from './size-details/size-detail-list/size-detail-list.component';
 import { SizeDetailService } from './shared/size-detail.service';
+import { ColorDetailsComponent } from './color-details/color-details.component';
+import { ColorDetailComponent } from './color-details/color-detail/color-detail.component';
+import { ColorDetailListComponent } from './color-details/color-detail-list/color-detail-list.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +50,10 @@ import { SizeDetailService } from './shared/size-detail.service';
     BrandDetailListComponent,
     SizeDetailsComponent,
     SizeDetailComponent,
-    SizeDetailListComponent
+    SizeDetailListComponent,
+    ColorDetailsComponent,
+    ColorDetailComponent,
+    ColorDetailListComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +74,9 @@ import { SizeDetailService } from './shared/size-detail.service';
   },
     CategoryDetailService,
     BrandDetailService,
-    SizeDetailService],
+    SizeDetailService,
+    ColorDetailService
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

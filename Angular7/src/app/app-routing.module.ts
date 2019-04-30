@@ -1,3 +1,4 @@
+import { ColorDetailsComponent } from './color-details/color-details.component';
 import { CategoryDetailsComponent } from './category-details/category-details.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { ForbiddenComponent } from './forbidden/forbidden.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'categories', component: CategoryDetailsComponent},
   {path: 'brands', component: BrandDetailsComponent},
   {path: 'sizes', component: SizeDetailsComponent},
+  {path: 'colors', component: ColorDetailsComponent},
   {path: 'adminpanel', component: AdminPanelComponent, canActivate: [AuthGuard], data : {permittedRoles: ['Admin']}}
   ];
 

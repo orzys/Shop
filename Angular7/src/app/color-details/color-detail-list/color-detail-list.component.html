@@ -1,0 +1,10 @@
+<table class="table table-hover">
+  <tr *ngFor="let cd of service.list">
+    <td (click)="populateForm(cd)">{{cd.ColorName}}</td>
+    <td (click)="populateForm(cd)">{{cd.ColorCode}}</td>
+    <input class="my-auto" type="color" value="{{cd.ColorCode}}" disabled>
+    <td>
+        <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(cd.ColorID)"></i>
+    </td>
+  </tr>
+</table>
