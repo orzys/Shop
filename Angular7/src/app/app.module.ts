@@ -1,3 +1,4 @@
+import { SexDetailService } from './shared/sex-detail.service';
 import { ColorDetailService } from './shared/color-detail.service';
 import { CategoryDetailService } from './shared/category-detail.service';
 import { UserService } from './shared/user.service';
@@ -32,6 +33,9 @@ import { SizeDetailService } from './shared/size-detail.service';
 import { ColorDetailsComponent } from './color-details/color-details.component';
 import { ColorDetailComponent } from './color-details/color-detail/color-detail.component';
 import { ColorDetailListComponent } from './color-details/color-detail-list/color-detail-list.component';
+import { SexDetailsComponent } from './sex-details/sex-details.component';
+import { SexDetailComponent } from './sex-details/sex-detail/sex-detail.component';
+import { SexDetailListComponent } from './sex-details/sex-detail-list/sex-detail-list.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +57,10 @@ import { ColorDetailListComponent } from './color-details/color-detail-list/colo
     SizeDetailListComponent,
     ColorDetailsComponent,
     ColorDetailComponent,
-    ColorDetailListComponent
+    ColorDetailListComponent,
+    SexDetailsComponent,
+    SexDetailComponent,
+    SexDetailListComponent
   ],
   imports: [
     BrowserModule,
@@ -75,7 +82,8 @@ import { ColorDetailListComponent } from './color-details/color-detail-list/colo
     CategoryDetailService,
     BrandDetailService,
     SizeDetailService,
-    ColorDetailService
+    ColorDetailService,
+    SexDetailService
     ],
   bootstrap: [AppComponent]
 })

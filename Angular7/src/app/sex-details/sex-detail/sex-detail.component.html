@@ -1,0 +1,20 @@
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+  <input type="hidden" name="SexID" [value]="service.formData.SexID">
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <div class="input-group-text bg-white">
+            <i class="fas fa-list" [class.green-icon]="SexName.valid" [class.red-icon]="SexName.invalid && SexName.touched"></i>
+        </div>
+      </div>
+      <input name="SexName"
+      #SexName="ngModel"
+      [(ngModel)]="service.formData.SexName"
+      class="form-control"
+      placeholder="Name" required minlength="4">
+    </div>
+  </div>
+    <div class="form-group">
+      <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid"><i class="fas fa-save"></i> Submit</button>
+    </div>
+</form>

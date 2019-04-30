@@ -19,6 +19,7 @@ namespace ShopApp.Models
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Sizes> Sizes { get; set; }
         public DbSet<Color> Colors { get; set; }
+        public DbSet<Sex> Sexes { get; set; }
 
     }
 }

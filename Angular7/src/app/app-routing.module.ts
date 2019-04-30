@@ -11,6 +11,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BrandDetailsComponent } from './brand-details/brand-details.component';
 import { SizeDetailsComponent } from './size-details/size-details.component';
+import { SexDetailsComponent } from './sex-details/sex-details.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/user/login', pathMatch: 'full'},
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'brands', component: BrandDetailsComponent},
   {path: 'sizes', component: SizeDetailsComponent},
   {path: 'colors', component: ColorDetailsComponent},
+  {path: 'sexes', component: SexDetailsComponent},
   {path: 'adminpanel', component: AdminPanelComponent, canActivate: [AuthGuard], data : {permittedRoles: ['Admin']}}
   ];
 
