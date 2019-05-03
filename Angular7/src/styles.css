@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
 table tr:hover{
   cursor: pointer;
 }
@@ -66,6 +70,6 @@ form{
 
 button[type=submit].btn{
   border-radius: 20px;
-  background-color: #a3eaff;
-  color: black;
+  background-color: #000000;
+  color: white;
 }

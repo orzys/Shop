@@ -21,7 +21,7 @@ export class SizeDetailComponent implements OnInit {
       form.resetForm();
     this.service.formData = {
       SizeID: 0,
-      Size: '',
+      SizeName: '',
     }
   }
 

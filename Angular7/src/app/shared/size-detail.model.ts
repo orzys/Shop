@@ -1,4 +1,4 @@
 export class SizeDetail {
   SizeID: number;
-  Size: string;
+  SizeName: string;
 }

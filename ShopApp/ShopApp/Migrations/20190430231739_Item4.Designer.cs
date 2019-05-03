@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShopApp.Models;
 
 namespace ShopApp.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class AuthenticationContextModelSnapshot : ModelSnapshot
+    [Migration("20190430231739_Item4")]
+    partial class Item4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -266,7 +268,7 @@ namespace ShopApp.Migrations
 
                     b.Property<int?>("SexID");
 
-                    b.Property<int?>("SizeID");
+                    b.Property<int?>("SizesID");
 
                     b.HasKey("ItemID");
 
@@ -278,7 +280,7 @@ namespace ShopApp.Migrations
 
                     b.HasIndex("SexID");
 
-                    b.HasIndex("SizeID");
+                    b.HasIndex("SizesID");
 
                     b.ToTable("Items");
                 });
@@ -298,13 +300,13 @@ namespace ShopApp.Migrations
                     b.ToTable("Sexes");
                 });
 
-            modelBuilder.Entity("ShopApp.Models.Size", b =>
+            modelBuilder.Entity("ShopApp.Models.Sizes", b =>
                 {
                     b.Property<int>("SizeID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("SizeName")
+                    b.Property<string>("Size")
                         .IsRequired()
                         .HasColumnType("nvarchar(3)");
 
@@ -401,9 +403,9 @@ namespace ShopApp.Migrations
                         .WithMany()
                         .HasForeignKey("SexID");
 
-                    b.HasOne("ShopApp.Models.Size", "Size")
+                    b.HasOne("ShopApp.Models.Sizes", "Sizes")
                         .WithMany()
-                        .HasForeignKey("SizeID");
+                        .HasForeignKey("SizesID");
                 });
 #pragma warning restore 612, 618
         }

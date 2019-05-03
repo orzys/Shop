@@ -12,6 +12,10 @@ export class BrandDetailService {
 
   constructor(private http: HttpClient) { }
 
+  getBrandList(){
+    return this.http.get(this.rootURL+'/Brands').toPromise();
+   }
+
   postBrandDetail(){
     return this.http.post(this.rootURL+ '/Brands', this.formData)
   }

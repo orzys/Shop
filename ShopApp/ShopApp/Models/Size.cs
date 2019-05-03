@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace ShopApp.Models
 {
-    public class Sizes
+    public class Size
     {
         [Key]
         public int SizeID { get; set; }
         [Required]
         [Column(TypeName = "nvarchar(3)")]
-        public string Size { get; set; }
+        public string SizeName { get; set; }
     }
 }

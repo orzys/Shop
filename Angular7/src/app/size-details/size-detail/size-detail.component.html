@@ -4,12 +4,12 @@
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
-            <i class="fas fa-list" [class.green-icon]="Size.valid" [class.red-icon]="Size.invalid && Size.touched"></i>
+            <i class="fas fa-list" [class.green-icon]="SizeName.valid" [class.red-icon]="SizeName.invalid && SizeName.touched"></i>
         </div>
       </div>
-      <input name="Size"
-      #Size="ngModel"
-      [(ngModel)]="service.formData.Size"
+      <input name="SizeName"
+      #SizeName="ngModel"
+      [(ngModel)]="service.formData.SizeName"
       class="form-control"
       placeholder="Size" required minlength="2" maxlength="2">
     </div>

@@ -1,4 +1,7 @@
 <table class="table table-hover">
+    <th>Name</th>
+    <th>Description</th>
+    <th>Delete</th>
   <tr *ngFor="let cd of service.list">
     <td (click)="populateForm(cd)">{{cd.CategoryName}}</td>
     <td (click)="populateForm(cd)">{{cd.CategoryDescription}}</td>

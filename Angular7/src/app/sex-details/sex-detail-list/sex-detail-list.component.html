@@ -1,4 +1,6 @@
 <table class="table table-hover">
+    <th>Name</th>
+    <th>Delete</th>
   <tr *ngFor="let sd of service.list">
     <td (click)="populateForm(sd)">{{sd.SexName}}</td>
     <td>

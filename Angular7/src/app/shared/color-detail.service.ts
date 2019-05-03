@@ -12,6 +12,10 @@ export class ColorDetailService {
 
   constructor(private http: HttpClient) { }
 
+  getColorList(){
+    return this.http.get(this.rootURL+'/Colors').toPromise();
+   }
+
   postColorDetail(){
     return this.http.post(this.rootURL+ '/Colors', this.formData)
   }

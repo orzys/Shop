@@ -36,6 +36,12 @@ import { ColorDetailListComponent } from './color-details/color-detail-list/colo
 import { SexDetailsComponent } from './sex-details/sex-details.component';
 import { SexDetailComponent } from './sex-details/sex-detail/sex-detail.component';
 import { SexDetailListComponent } from './sex-details/sex-detail-list/sex-detail-list.component';
+import { ItemDetailsComponent } from './item-details/item-details.component';
+import { ItemDetailComponent } from './item-details/item-detail/item-detail.component';
+import { ItemDetailListComponent } from './item-details/item-detail-list/item-detail-list.component';
+import { ItemDetailService } from './shared/item-detail.service';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -60,7 +66,10 @@ import { SexDetailListComponent } from './sex-details/sex-detail-list/sex-detail
     ColorDetailListComponent,
     SexDetailsComponent,
     SexDetailComponent,
-    SexDetailListComponent
+    SexDetailListComponent,
+    ItemDetailsComponent,
+    ItemDetailComponent,
+    ItemDetailListComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +77,7 @@ import { SexDetailListComponent } from './sex-details/sex-detail-list/sex-detail
     ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatDialogModule,
     ToastrModule.forRoot({
       progressBar: true
     }),
@@ -83,8 +93,10 @@ import { SexDetailListComponent } from './sex-details/sex-detail-list/sex-detail
     BrandDetailService,
     SizeDetailService,
     ColorDetailService,
-    SexDetailService
+    SexDetailService,
+    ItemDetailService
     ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [CategoryDetailComponent, ColorDetailComponent, SizeDetailComponent, BrandDetailComponent, SexDetailComponent]
 })
 export class AppModule { }

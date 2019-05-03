@@ -12,6 +12,10 @@ export class SizeDetailService {
 
   constructor(private http: HttpClient) { }
 
+  getSizeList(){
+    return this.http.get(this.rootURL+'/Sizes').toPromise();
+   }
+
   postSizeDetail(){
     return this.http.post(this.rootURL+ '/Sizes', this.formData)
   }

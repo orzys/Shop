@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShopApp.Models;
 
 namespace ShopApp.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class AuthenticationContextModelSnapshot : ModelSnapshot
+    [Migration("20190430205728_Item1")]
+    partial class Item1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -252,21 +254,19 @@ namespace ShopApp.Migrations
 
                     b.Property<int?>("ColorID");
 
-                    b.Property<string>("ItemDescription");
+                    b.Property<string>("Description");
 
-                    b.Property<string>("ItemImage");
+                    b.Property<string>("Image");
 
                     b.Property<string>("ItemName");
 
-                    b.Property<decimal>("ItemPrice");
+                    b.Property<int>("Quantity");
 
-                    b.Property<int>("ItemQuantity");
-
-                    b.Property<decimal>("ItemRaiting");
+                    b.Property<decimal>("Raiting");
 
                     b.Property<int?>("SexID");
 
-                    b.Property<int?>("SizeID");
+                    b.Property<int?>("SizesSizeID");
 
                     b.HasKey("ItemID");
 
@@ -278,7 +278,7 @@ namespace ShopApp.Migrations
 
                     b.HasIndex("SexID");
 
-                    b.HasIndex("SizeID");
+                    b.HasIndex("SizesSizeID");
 
                     b.ToTable("Items");
                 });
@@ -298,13 +298,13 @@ namespace ShopApp.Migrations
                     b.ToTable("Sexes");
                 });
 
-            modelBuilder.Entity("ShopApp.Models.Size", b =>
+            modelBuilder.Entity("ShopApp.Models.Sizes", b =>
                 {
                     b.Property<int>("SizeID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("SizeName")
+                    b.Property<string>("Size")
                         .IsRequired()
                         .HasColumnType("nvarchar(3)");
 
@@ -401,9 +401,9 @@ namespace ShopApp.Migrations
                         .WithMany()
                         .HasForeignKey("SexID");
 
-                    b.HasOne("ShopApp.Models.Size", "Size")
+                    b.HasOne("ShopApp.Models.Sizes", "Sizes")
                         .WithMany()
-                        .HasForeignKey("SizeID");
+                        .HasForeignKey("SizesSizeID");
                 });
 #pragma warning restore 612, 618
         }

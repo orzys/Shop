@@ -20,37 +20,37 @@ namespace ShopApp.Controllers
             _context = context;
         }
 
-        // GET: api/Sizes
+        // GET: api/Size
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Sizes>>> GetSizes()
+        public async Task<ActionResult<IEnumerable<Size>>> GetSizes()
         {
             return await _context.Sizes.ToListAsync();
         }
 
-        // GET: api/Sizes/5
+        // GET: api/Size/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Sizes>> GetSizes(int id)
+        public async Task<ActionResult<Size>> GetSize(int id)
         {
-            var sizes = await _context.Sizes.FindAsync(id);
+            var size = await _context.Sizes.FindAsync(id);
 
-            if (sizes == null)
+            if (size == null)
             {
                 return NotFound();
             }
 
-            return sizes;
+            return size;
         }
 
         // PUT: api/Sizes/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutSizes(int id, Sizes sizes)
+        public async Task<IActionResult> PutSize(int id, Size size)
         {
-            if (id != sizes.SizeID)
+            if (id != size.SizeID)
             {
                 return BadRequest();
             }
 
-            _context.Entry(sizes).State = EntityState.Modified;
+            _context.Entry(size).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +58,7 @@ namespace ShopApp.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!SizesExists(id))
+                if (!SizeExists(id))
                 {
                     return NotFound();
                 }
@@ -71,33 +71,33 @@ namespace ShopApp.Controllers
             return NoContent();
         }
 
-        // POST: api/Sizes
+        // POST: api/Size
         [HttpPost]
-        public async Task<ActionResult<Sizes>> PostSizes(Sizes sizes)
+        public async Task<ActionResult<Size>> PostSize(Size size)
         {
-            _context.Sizes.Add(sizes);
+            _context.Sizes.Add(size);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetSizes", new { id = sizes.SizeID }, sizes);
+            return CreatedAtAction("GetSize", new { id = size.SizeID }, size);
         }
 
-        // DELETE: api/Sizes/5
+        // DELETE: api/Size/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Sizes>> DeleteSizes(int id)
+        public async Task<ActionResult<Size>> DeleteSize(int id)
         {
-            var sizes = await _context.Sizes.FindAsync(id);
-            if (sizes == null)
+            var size = await _context.Sizes.FindAsync(id);
+            if (size == null)
             {
                 return NotFound();
             }
 
-            _context.Sizes.Remove(sizes);
+            _context.Sizes.Remove(size);
             await _context.SaveChangesAsync();
 
-            return sizes;
+            return size;
         }
 
-        private bool SizesExists(int id)
+        private bool SizeExists(int id)
         {
             return _context.Sizes.Any(e => e.SizeID == id);
         }

@@ -12,6 +12,10 @@ export class CategoryDetailService {
 
   constructor(private http: HttpClient) { }
 
+  getCategoryList(){
+    return this.http.get(this.rootURL+'/Categories').toPromise();
+   }
+
   postCategoryDetail(){
     return this.http.post(this.rootURL+'/Categories',this.formData)
   }

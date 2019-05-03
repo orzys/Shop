@@ -1,4 +1,8 @@
 <table class="table table-hover">
+    <th>Name</th>
+    <th>HTML Code</th>
+    <th>Color</th>
+    <th>Delete</th>
   <tr *ngFor="let cd of service.list">
     <td (click)="populateForm(cd)">{{cd.ColorName}}</td>
     <td (click)="populateForm(cd)">{{cd.ColorCode}}</td>

@@ -1,0 +1,30 @@
+<table class="table table-hover">
+  <th>Picture</th>
+  <th>Name</th>
+  <th>Quantity</th>
+  <th>Description</th>
+  <th>Price</th>
+  <th>Raiting</th>
+  <th>Category</th>
+  <th>Color</th>
+  <th>Size</th>
+  <th>Brand</th>
+  <th>Sex</th>
+  <th>Delete</th>
+  <tr *ngFor="let id of service.list">
+    <img (click)="populateForm(id)" [src]="id.ItemImage" style="width: 50px; height: 50px;">
+    <td (click)="populateForm(id)">{{id.ItemName}}</td>
+    <td (click)="populateForm(id)">{{id.ItemQuantity}}</td>
+    <td (click)="populateForm(id)">{{id.ItemDescription}}</td>
+    <td (click)="populateForm(id)">{{id.ItemPrice}}</td>
+    <td (click)="populateForm(id)">{{id.ItemRaiting}}</td>
+    <td (click)="populateForm(id)">{{id.CategoryName}}</td>
+    <td (click)="populateForm(id)">{{id.ColorName}}</td>
+    <td (click)="populateForm(id)">{{id.SizeName}}</td>
+    <td (click)="populateForm(id)">{{id.BrandName}}</td>
+    <td (click)="populateForm(id)">{{id.SexName}}</td>
+    <td>
+        <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(id.ItemID)"></i>
+    </td>
+  </tr>
+</table>

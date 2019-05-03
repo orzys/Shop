@@ -14,6 +14,10 @@ export class SexDetailService {
     private http: HttpClient
   ) { }
 
+  getSexList(){
+    return this.http.get(this.rootURL+'/Sexes').toPromise();
+   }
+
   postSexDetail(){
     return this.http.post(this.rootURL+ '/Sexes', this.formData)
   }

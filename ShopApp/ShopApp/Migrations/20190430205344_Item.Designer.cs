@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShopApp.Models;
 
 namespace ShopApp.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class AuthenticationContextModelSnapshot : ModelSnapshot
+    [Migration("20190430205344_Item")]
+    partial class Item
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -218,7 +220,11 @@ namespace ShopApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<int?>("ItemID");
+
                     b.HasKey("CategoryID");
+
+                    b.HasIndex("ItemID");
 
                     b.ToTable("Categories");
                 });
@@ -235,7 +241,11 @@ namespace ShopApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(20)");
 
+                    b.Property<int?>("ItemID");
+
                     b.HasKey("ColorID");
+
+                    b.HasIndex("ItemID");
 
                     b.ToTable("Colors");
                 });
@@ -248,37 +258,23 @@ namespace ShopApp.Migrations
 
                     b.Property<int?>("BrandID");
 
-                    b.Property<int?>("CategoryID");
+                    b.Property<string>("Description");
 
-                    b.Property<int?>("ColorID");
-
-                    b.Property<string>("ItemDescription");
-
-                    b.Property<string>("ItemImage");
+                    b.Property<string>("Image");
 
                     b.Property<string>("ItemName");
 
-                    b.Property<decimal>("ItemPrice");
+                    b.Property<int>("Quantity");
 
-                    b.Property<int>("ItemQuantity");
-
-                    b.Property<decimal>("ItemRaiting");
+                    b.Property<decimal>("Raiting");
 
                     b.Property<int?>("SexID");
-
-                    b.Property<int?>("SizeID");
 
                     b.HasKey("ItemID");
 
                     b.HasIndex("BrandID");
 
-                    b.HasIndex("CategoryID");
-
-                    b.HasIndex("ColorID");
-
                     b.HasIndex("SexID");
-
-                    b.HasIndex("SizeID");
 
                     b.ToTable("Items");
                 });
@@ -298,17 +294,21 @@ namespace ShopApp.Migrations
                     b.ToTable("Sexes");
                 });
 
-            modelBuilder.Entity("ShopApp.Models.Size", b =>
+            modelBuilder.Entity("ShopApp.Models.Sizes", b =>
                 {
                     b.Property<int>("SizeID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("SizeName")
+                    b.Property<int?>("ItemID");
+
+                    b.Property<string>("Size")
                         .IsRequired()
                         .HasColumnType("nvarchar(3)");
 
                     b.HasKey("SizeID");
+
+                    b.HasIndex("ItemID");
 
                     b.ToTable("Sizes");
                 });
@@ -383,27 +383,36 @@ namespace ShopApp.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("ShopApp.Models.Category", b =>
+                {
+                    b.HasOne("ShopApp.Models.Item")
+                        .WithMany("Categories")
+                        .HasForeignKey("ItemID");
+                });
+
+            modelBuilder.Entity("ShopApp.Models.Color", b =>
+                {
+                    b.HasOne("ShopApp.Models.Item")
+                        .WithMany("Colors")
+                        .HasForeignKey("ItemID");
+                });
+
             modelBuilder.Entity("ShopApp.Models.Item", b =>
                 {
                     b.HasOne("ShopApp.Models.Brand", "Brand")
                         .WithMany()
                         .HasForeignKey("BrandID");
 
-                    b.HasOne("ShopApp.Models.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryID");
-
-                    b.HasOne("ShopApp.Models.Color", "Color")
-                        .WithMany()
-                        .HasForeignKey("ColorID");
-
                     b.HasOne("ShopApp.Models.Sex", "Sex")
                         .WithMany()
                         .HasForeignKey("SexID");
+                });
 
-                    b.HasOne("ShopApp.Models.Size", "Size")
-                        .WithMany()
-                        .HasForeignKey("SizeID");
+            modelBuilder.Entity("ShopApp.Models.Sizes", b =>
+                {
+                    b.HasOne("ShopApp.Models.Item")
+                        .WithMany("Sizes")
+                        .HasForeignKey("ItemID");
                 });
 #pragma warning restore 612, 618
         }
