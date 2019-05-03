@@ -11,4 +11,3 @@ D:\cSharp projects\Shop\ShopApp\ShopApp\obj\Debug\netcoreapp2.2\ShopApp.Assembly
 D:\cSharp projects\Shop\ShopApp\ShopApp\obj\Debug\netcoreapp2.2\ShopApp.RazorTargetAssemblyInfo.cache
 D:\cSharp projects\Shop\ShopApp\ShopApp\obj\Debug\netcoreapp2.2\ShopApp.dll
 D:\cSharp projects\Shop\ShopApp\ShopApp\obj\Debug\netcoreapp2.2\ShopApp.pdb
-D:\cSharp projects\Shop\ShopApp\ShopApp\obj\Debug\netcoreapp2.2\ShopApp.csprojAssemblyReference.cache

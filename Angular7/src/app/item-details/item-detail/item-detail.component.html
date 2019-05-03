@@ -82,36 +82,36 @@
     </div>
   </div>
   <div class="form-group">
-    <label>Category </label>
-    <a class="btn btn-sm btn-success text-white" (click)="addNewCategory(form)"><i class="fa fa-plus"></i> Add Item</a>
+    <span>Category </span>
+    <a class="btn btn-sm btn-dark text-white" (click)="addNewCategory(form)"><i class="fa fa-plus"></i></a>
     <select (onmouseover)="service.refreshCategories()" name="CategoryID" #CategoryID="ngModel" [(ngModel)]="service.formData.CategoryID" class="form-control" required>
       <option *ngFor="let item of categoryList" value="{{item.CategoryID}}">{{item.CategoryName}} </option>
     </select>
   </div>
   <div class="form-group">
-    <label>Color</label>
-    <a class="btn btn-sm btn-success text-white" (click)="addNewColor(form)"> <i class="fa fa-plus"></i> Add Item</a>
+    <span>Color </span>
+    <a class="btn btn-sm btn-dark text-white" (click)="addNewColor(form)"> <i class="fa fa-plus"></i> Add Item</a>
     <select name="ColorID" #ColorID="ngModel" [(ngModel)]="service.formData.ColorID" class="form-control" required>
       <option *ngFor="let item of colorList" value="{{item.ColorID}}">{{item.ColorName}}</option>
     </select>
   </div>
   <div class="form-group">
-    <label>Size </label>
-    <a class="btn btn-sm btn-success text-white" (click)="addNewSize(form)"><i class="fa fa-plus"></i> Add Item</a>
+    <span>Size </span>
+    <a class="btn btn-sm btn-dark text-white" (click)="addNewSize(form)"><i class="fa fa-plus"></i> Add Item</a>
     <select name="SizeID" #SizeID="ngModel" [(ngModel)]="service.formData.SizeID" class="form-control" required>
       <option *ngFor="let item of sizesList" value="{{item.SizeID}}">{{item.SizeName}}</option>
     </select>
   </div>
   <div class="form-group">
-    <label>Brand </label>
-    <a class="btn btn-sm btn-success text-white" (click)="addNewBrand(form)"><i class="fa fa-plus"></i> Add Item</a>
+    <span>Brand </span>
+    <a class="btn btn-sm btn-dark text-white" (click)="addNewBrand(form)"><i class="fa fa-plus"></i> Add Item</a>
     <select name="BrandID" #BrandID="ngModel" [(ngModel)]="service.formData.BrandID" class="form-control" required>
       <option *ngFor="let item of brandList" value="{{item.BrandID}}">{{item.BrandName}}</option>
     </select>
   </div>
   <div class="form-group">
-    <label>Sex </label>
-    <a class="btn btn-sm btn-success text-white" (click)="addNewCategory(form)"><i class="fa fa-plus"></i> Add Item</a>
+    <span>Sex </span>
+    <a class="btn btn-sm btn-dark text-white" (click)="addNewSex(form)"><i class="fa fa-plus"></i> Add Item</a>
     <select name="SexID" #CategSexIDoryID="ngModel" [(ngModel)]="service.formData.SexID" class="form-control" required>
       <option *ngFor="let item of sexList" value="{{item.SexID}}">{{item.SexName}}</option>
     </select>

@@ -55,15 +55,16 @@ namespace ShopApp.Controllers
                               e.BrandName,
                               f.SexID,
                               f.SexName
-                          }).ToListAsync();
+                          }).ToArrayAsync();
 
                         return Ok(result);
+
             //return await _context.Items.ToListAsync();
         }
 
         // GET: api/Items/ItemName  // GET: api/Items/5
-        [HttpGet("{name}")]
-        public async Task<ActionResult<Item>> GetItem(string name)
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Item>> GetItem(int id)
         {
             //var item = await _context.Items.FindAsync(id);
 
@@ -135,7 +136,7 @@ namespace ShopApp.Controllers
 
 
             var item = (from a in _context.Items
-                        where a.ItemName == name
+                        where a.ItemID == id
                         join b in _context.Categories
                         on a.CategoryID equals b.CategoryID
                         join c in _context.Colors

@@ -46,19 +46,18 @@ export class ItemDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
-    let buttonName = document.activeElement.getAttribute("Name");
-    this.categoryService.getCategoryList().then(res => this.categoryList = res as CategoryDetail[])
-    this.colorService.getColorList().then(res => this.colorList = res as ColorDetail[])
-    this.sizesService.getSizeList().then(res => this.sizesList = res as SizeDetail[])
-    this.brandService.getBrandList().then(res => this.brandList = res as BrandDetail[])
-    this.sexService.getSexList().then(res => this.sexList = res as SexDetail[])
     this.resetForm();
+    this.categoryService.getCategoryList().then(res => this.categoryList = res as CategoryDetail[]);
+    this.colorService.getColorList().then(res => this.colorList = res as ColorDetail[]);
+    this.sizesService.getSizeList().then(res => this.sizesList = res as SizeDetail[]);
+    this.brandService.getBrandList().then(res => this.brandList = res as BrandDetail[]);
+    this.sexService.getSexList().then(res => this.sexList = res as SexDetail[]);
   }
 
   resetForm(form?: NgForm){
-    if(form!=null)
+    if (form != null) {
       form.resetForm();
+    }
     this.service.formData = {
       ItemID: 0,
       ItemName: '',
@@ -77,7 +76,7 @@ export class ItemDetailComponent implements OnInit {
       BrandName: '',
       SexID: 0,
       SexName: ''
-    }
+    };
   }
 
   // onSubmit(form: NgForm){
@@ -87,39 +86,47 @@ export class ItemDetailComponent implements OnInit {
   //     this.updateRecord(form);
   // }
 
-  addNewCategory(form :NgForm){
+  addNewCategory(form: NgForm){
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.autoFocus=true;
-    dialogConfig.width="40%";
-    this.dialog.open(CategoryDetailComponent, dialogConfig).afterClosed().subscribe(res => {this.categoryService.getCategoryList().then(res => this.categoryList = res as CategoryDetail[])});
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '40%';
+    this.dialog.open(CategoryDetailComponent, dialogConfig).afterClosed()
+    .subscribe(res => {this.categoryService.getCategoryList().then(res => this.categoryList = res as CategoryDetail[]); });
   }
 
-  addNewColor(form :NgForm){
+  addNewColor(form: NgForm){
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.autoFocus=true;
-    dialogConfig.width="40%";
-    this.dialog.open(ColorDetailComponent, dialogConfig).afterClosed().subscribe(res => {this.colorService.getColorList().then(res => this.colorList = res as ColorDetail[])});
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '40%';
+    this.dialog.open(ColorDetailComponent, dialogConfig).afterClosed()
+    .subscribe(res => {this.colorService.getColorList().then(res => this.colorList = res as ColorDetail[]); });
   }
 
-  addNewSize(form :NgForm){
+  addNewSize(form: NgForm){
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.autoFocus=true;
-    dialogConfig.width="40%";
-    this.dialog.open(SizeDetailComponent, dialogConfig).afterClosed().subscribe(res => {this.sizesService.getSizeList().then(res => this.sizesList = res as SizeDetail[])});
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '40%';
+    this.dialog.open(SizeDetailComponent, dialogConfig)
+    .afterClosed()
+    .subscribe(res => {this.sizesService.getSizeList().then(res => this.sizesList = res as SizeDetail[]); });
   }
 
-  addNewBrand(form :NgForm){
+  addNewBrand(form: NgForm){
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.autoFocus=true;
-    dialogConfig.width="40%";
-    this.dialog.open(BrandDetailComponent, dialogConfig).afterClosed().subscribe(res => {this.brandService.getBrandList().then(res => this.brandList = res as BrandDetail[])});
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '40%';
+    this.dialog.open(BrandDetailComponent, dialogConfig)
+    .afterClosed()
+    .subscribe(res => {this.brandService.getBrandList().then(res => this.brandList = res as BrandDetail[]); });
   }
 
-  addNewSex(form :NgForm){
+  addNewSex(form: NgForm){
     const dialogConfig = new MatDialogConfig();
-    dialogConfig.autoFocus=true;
-    dialogConfig.width="40%";
-    this.dialog.open(SexDetailComponent, dialogConfig).afterClosed().subscribe(res => {this.sexService.getSexList().then(res => this.sexList = res as SexDetail[])});
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '40%';
+    this.dialog.open(SexDetailComponent, dialogConfig)
+    .afterClosed()
+    .subscribe(res => {this.sexService.getSexList().then(res => this.sexList = res as SexDetail[]); });
   }
 
   onSubmit(form: NgForm){
@@ -152,12 +159,13 @@ export class ItemDetailComponent implements OnInit {
       err => {
         console.log(err);
       }
-    )
+    );
   }
 
   AddVariant(form: NgForm){
-    console.log();
-    this.service.formData.ItemID=0; //zerowanie id, bo inaczej chce nam wpisać kolejny wiersz z tym samym id
+    // zerowanie id, bo inaczej chce nam wpisać kolejny wiersz z tym samym id
+    this.service.formData.ItemID = 0;
+    console.log(this.service.formData);
     this.service.postItemDetail().subscribe(
       res => {
         this.toastr.success('Submitted successfully', 'Add variant');
@@ -166,16 +174,16 @@ export class ItemDetailComponent implements OnInit {
       err => {
         console.log(err);
       }
-    )
+    );
   }
 
 
-  readUrl(event:any) {
+  readUrl(event: any) {
     if (event.target.files && event.target.files[0]) {
-      var reader = new FileReader();
+      const reader = new FileReader();
       reader.onload = (event: ProgressEvent) => {
-        this.service.formData.ItemImage = (<FileReader>event.target).result as string;
-      }
+        this.service.formData.ItemImage = (<FileReader> event.target).result as string;
+      };
       reader.readAsDataURL(event.target.files[0]);
     }
   }
@@ -190,6 +198,6 @@ export class ItemDetailComponent implements OnInit {
       err => {
         console.log(err);
       }
-    )
+    );
   }
 }
