@@ -41,6 +41,11 @@ import { ItemDetailComponent } from './item-details/item-detail/item-detail.comp
 import { ItemDetailListComponent } from './item-details/item-detail-list/item-detail-list.component';
 import { ItemDetailService } from './shared/item-detail.service';
 import {MatDialogModule} from '@angular/material/dialog';
+import { MainPageComponent } from './main-page/main-page.component';
+import { ProductsListComponent } from './main-page/products-list/products-list.component';
+import { ProductDetailsComponent } from './main-page/product-details/product-details.component';
+import { NgPipesModule } from 'ngx-pipes';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -69,13 +74,18 @@ import {MatDialogModule} from '@angular/material/dialog';
     SexDetailListComponent,
     ItemDetailsComponent,
     ItemDetailComponent,
-    ItemDetailListComponent
+    ItemDetailListComponent,
+    MainPageComponent,
+    ProductsListComponent,
+    ProductDetailsComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgPipesModule,
     BrowserAnimationsModule,
     MatDialogModule,
     ToastrModule.forRoot({

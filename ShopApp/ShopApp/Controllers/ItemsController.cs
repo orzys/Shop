@@ -62,6 +62,40 @@ namespace ShopApp.Controllers
             //return await _context.Items.ToListAsync();
         }
 
+        [HttpGet("/api/Items/details/{name}")]
+        public async Task<ActionResult<Item>> GetItemByName(string name)
+        {
+            var item = (from a in _context.Items
+                        where a.ItemName == name
+                        join b in _context.Categories
+                        on a.CategoryID equals b.CategoryID
+                        join c in _context.Colors
+                        on a.ColorID equals c.ColorID
+                        join d in _context.Sizes
+                        on a.SizeID equals d.SizeID
+                        join e in _context.Brands
+                        on a.BrandID equals e.BrandID
+                        join f in _context.Sexes
+                        on a.SexID equals f.SexID
+
+                        select new
+                        {
+                            a.ItemID,
+                            a.ItemName,
+                            a.ItemQuantity,
+                            a.ItemDescription,
+                            a.ItemPrice,
+                            a.ItemRaiting,
+                            b.CategoryName,
+                            c.ColorName,
+                            d.SizeName,
+                            e.BrandName,
+                            f.SexName,
+                            a.ItemImage
+                        }).ToArray();
+            return Ok(item);
+        }
+
         // GET: api/Items/ItemName  // GET: api/Items/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Item>> GetItem(int id)

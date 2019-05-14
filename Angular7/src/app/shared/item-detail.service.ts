@@ -16,7 +16,7 @@ export class ItemDetailService {
     private http: HttpClient
   ) { }
 
-  getItemById(id: number): any{
+  getItemById(id){
     return this.http.get(this.rootURL+'/Items/'+id).toPromise();
   }
 
@@ -43,5 +43,9 @@ export class ItemDetailService {
   refreshCategories(){
     this.http.get(this.rootURL + '/Categories').toPromise().then(res => this.categoriesList = res as CategoryDetail[]);
     console.log(this.http.get(this.rootURL + '/Categories').toPromise().then(res => this.categoriesList = res as CategoryDetail[]));
+  }
+
+  getItemByName(name: string){
+    this.http.get(this.rootURL+'Items/details/'+name).toPromise().then(res => this.list = res as ItemDetail[])
   }
 }

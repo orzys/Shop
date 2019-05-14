@@ -85,7 +85,9 @@ namespace ShopApp
 
             app.UseAuthentication();
 
-            app.UseMvc();
+            app.UseMvc(
+                routes => routes.MapRoute("Item", "Items/{id}")
+                );
         }
     }
 }
