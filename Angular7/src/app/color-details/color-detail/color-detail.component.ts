@@ -37,6 +37,7 @@ export class ColorDetailComponent implements OnInit {
   }
 
   insertRecord(form: NgForm){
+    if (this.service.formData.ColorCode == null) this.service.formData.ColorCode = '#000000';
     this.service.postColorDetail().subscribe(
       res => {
         this.resetForm();

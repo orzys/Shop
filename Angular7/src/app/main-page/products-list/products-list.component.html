@@ -1,10 +1,21 @@
-<table class="table table-hover">
+<input type="text" [(ngModel)]="itName" (input)="Search()">
+{{itName}}
+<table matSort (matSortChange)="sortData($event)" class="table table-hover">
+
   <th>Picture</th>
-  <th>Name</th>
-  <th>Price</th>
-  <tr *ngFor="let id of service.list">
-    <img (click)="goToDetails(id.ItemName)" [src]="id.ItemImage" style="width: 50px; height: 50px;">
-    <td (click)="goToDetails(id.ItemName)">{{id.ItemName}}</td>
-    <td (click)="goToDetails(id.ItemName)">{{id.ItemPrice}}</td>
-  </tr>
+  <th mat-sort-header="ItemName">Name</th>
+  <th mat-sort-header="ItemPrice">Price</th>
+  <!-- <tr *ngIf="!sortData; then thenBlock; else elseBlock"> -->
+        <tr *ngFor="let id of service.list">
+            <img (click)="goToDetails(id.ItemName)" [src]="id.ItemImage" style="width: 50px; height: 50px;">
+            <td (click)="goToDetails(id.ItemName)">{{id.ItemName}}</td>
+            <td (click)="goToDetails(id.ItemName)">{{id.ItemPrice}}</td>
+            <td>{{id.ItemID}}</td>
+          </tr>
+        <!-- <tr #elseBlock *ngFor="let id of service.list" >
+            <img (click)="goToDetails(id.ItemName)" [src]="id.ItemImage" style="width: 50px; height: 50px;">
+            <td (click)="goToDetails(id.ItemName)">{{id.ItemName}}</td>
+            <td (click)="goToDetails(id.ItemName)">{{id.ItemPrice}}</td>
+            <td>{{id.ItemID}}</td>
+          </tr> -->
 </table>

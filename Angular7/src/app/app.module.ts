@@ -47,6 +47,7 @@ import { ProductDetailsComponent } from './main-page/product-details/product-det
 import { NgPipesModule } from 'ngx-pipes';
 import { CartComponent } from './cart/cart.component';
 import { OrderComponent } from './order/order.component';
+import { MatTableModule, MatSortHeader, MatPaginatorModule, MatPaginator, MatSortModule } from '@angular/material';
 
 
 @NgModule({
@@ -93,7 +94,10 @@ import { OrderComponent } from './order/order.component';
     ToastrModule.forRoot({
       progressBar: true
     }),
-    FormsModule
+    FormsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   providers:
     [UserService, {

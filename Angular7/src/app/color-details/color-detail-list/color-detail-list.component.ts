@@ -1,7 +1,8 @@
 import { ColorDetail } from './../../shared/color-detail.model';
 import { ToastrService } from 'ngx-toastr';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ColorDetailService } from 'src/app/shared/color-detail.service';
+import { Sort, MatSort, MatTableDataSource, MatPaginator } from '@angular/material';
 
 @Component({
   selector: 'app-color-detail-list',
@@ -9,14 +10,38 @@ import { ColorDetailService } from 'src/app/shared/color-detail.service';
   styles: []
 })
 export class ColorDetailListComponent implements OnInit {
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  sortedData: ColorDetail[];
 
   constructor(
     public service: ColorDetailService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
   ) { }
 
   ngOnInit() {
     this.service.refreshList();
+  }
+
+  sortData(sort: Sort) {
+    const data = this.service.list.slice();
+    if (!sort.active || sort.direction === '') {
+      this.sortedData = data;
+      return;
+    }
+
+    this.sortedData = data.sort((a, b) => {
+      const isAsc = sort.direction === 'asc';
+      switch (sort.active) {
+        case 'ColorName': return this.compare(a.ColorName, b.ColorName, isAsc);
+        case 'ColorCode': return this.compare(a.ColorCode, b.ColorCode, isAsc);
+        default: return 0;
+      }
+    });
+  }
+
+  compare(a: number | string, b: number | string, isAsc: boolean) {
+    return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
   }
 
   populateForm(cd: ColorDetail){

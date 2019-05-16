@@ -1,14 +1,45 @@
-<table class="table table-hover">
-    <th>Name</th>
+<!-- <table class="table table-hover" matSort>
+    <th [mdbTableSort]="" sortBy="id">Name</th>
     <th>HTML Code</th>
     <th>Color</th>
     <th>Delete</th>
   <tr *ngFor="let cd of service.list">
-    <td (click)="populateForm(cd)">{{cd.ColorName}}</td>
-    <td (click)="populateForm(cd)">{{cd.ColorCode}}</td>
+    <td (click)="populateForm(cd)" mat-sort-header="ColorName">{{cd.ColorName}}</td>
+    <td (click)="populateForm(cd)" mat-sort-header="ColorCode">{{cd.ColorCode}}</td>
     <input class="my-auto" type="color" value="{{cd.ColorCode}}" disabled>
     <td>
         <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(cd.ColorID)"></i>
     </td>
   </tr>
+</table> -->
+
+
+<table matSort (matSortChange)="sortData($event)" class="table table-hover">
+    <th mat-sort-header="ColorName">Name</th>
+    <th mat-sort-header="ColorCode">HTML Code</th>
+    <th>Color</th>
+    <th>Delete</th>
+  <tr *ngFor="let color of service.list">
+    <td (click)="populateForm(color)" >{{color.ColorName}}</td>
+    <td (click)="populateForm(color)" >{{color.ColorCode}}</td>
+    <td><input class="my-auto" type="color" value="{{color.ColorCode}}" disabled></td>
+    <td>
+        <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(color.ColorID)"></i>
+    </td>
+  </tr>
 </table>
+
+<!-- <table class="table table-hover">
+  <th>Name</th>
+  <th>HTML Code</th>
+  <th>Color</th>
+  <th>Delete</th>
+<tr *ngFor="let cd of service.list">
+  <td (click)="populateForm(cd)">{{cd.ColorName}}</td>
+  <td (click)="populateForm(cd)">{{cd.ColorCode}}</td>
+  <input class="my-auto" type="color" value="{{cd.ColorCode}}" disabled>
+  <td>
+      <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(cd.ColorID)"></i>
+  </td>
+</tr>
+</table> -->
