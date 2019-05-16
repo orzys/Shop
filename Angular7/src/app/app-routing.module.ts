@@ -1,3 +1,4 @@
+import { OrderComponent } from './order/order.component';
 import { CartComponent } from './cart/cart.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { ItemDetailsComponent } from './item-details/item-details.component';
@@ -16,6 +17,7 @@ import { BrandDetailsComponent } from './brand-details/brand-details.component';
 import { SizeDetailsComponent } from './size-details/size-details.component';
 import { SexDetailsComponent } from './sex-details/sex-details.component';
 import { ProductDetailsComponent } from './main-page/product-details/product-details.component';
+import { Order } from './shared/order.model';
 
 const routes: Routes = [
   {path: '', redirectTo: '/user/login', pathMatch: 'full'},
@@ -34,6 +36,7 @@ const routes: Routes = [
   {path: 'items', component: ItemDetailsComponent},
   {path: 'shop', component: MainPageComponent},
   {path: 'cart', component: CartComponent},
+  {path: 'order', component: OrderComponent},
     // children: [
     //   {path: 'details/:id', component: ProductDetailsComponent}
     // ]},

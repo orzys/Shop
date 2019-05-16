@@ -14,16 +14,114 @@
         <th>Quantity</th>
         <tr *ngFor="let product of cartArray">
           <img [src]="product.image" style="width: 50px; height: 50px;">
+          <td>{{product.id}}</td>
           <td>{{product.name}}</td>
           <td>{{product.price}}$</td>
-          <!-- <td>{{product.quantity}}</td> -->
-          <input type="text" value="this.cartArray.quantity" placeholder="Quantity" #quantity="ngModel" [(ngModel)]="this.cartArray.quantity" (change)="updateAmount()">
+          <td>{{product.quantity}}</td>
+          <input type="text" value="product.quantity" placeholder="Quantity" #quantity="ngModel" [(ngModel)]="product.quantity" (change)="updateAmount()">
           <td>Usuń</td>
         </tr>
       </table>
       <p *ngIf="cartArray">To pay: {{this.amountToPay}}$</p>
       <h1 *ngIf="!cartArray" class="text-center">Cart is empty</h1>
     <button *ngIf="cartArray" class="btn btn-danger" (click)="clearCart()">Clear cart</button>
+      <button id="showFormButton" class="btn btn-info">Show form</button>
+
+    <form id="dataFormInOrder" #form="ngForm" autocomplete="off" (submit)="orderItems(form)">
+      <div class="form-group">
+          <label>FirstName</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+            </div>
+          </div>
+          <input   name="FirstName" #FirstName="ngModel"
+          [(ngModel)]="service.formData.FirstName"
+          class="form-control"
+          placeholder="FirstName" required  >
+        </div>
+      </div>
+      <div class="form-group">
+          <label>LastName</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+            </div>
+          </div>
+          <input   name="LastName" #LastName="ngModel"
+          [(ngModel)]="service.formData.LastName"
+          class="form-control"
+          placeholder="LastName" required  >
+        </div>
+      </div>
+      <div class="form-group">
+          <label>ZipCode</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+            </div>
+          </div>
+          <input   name="ZipCode" #ZipCode="ngModel"
+          [(ngModel)]="service.formData.ZipCode"
+          class="form-control"
+          placeholder="ZipCode" required  >
+        </div>
+      </div>
+      <div class="form-group">
+          <label>City</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+            </div>
+          </div>
+          <input   name="City" #City="ngModel"
+          [(ngModel)]="service.formData.City"
+          class="form-control"
+          placeholder="City" required  >
+        </div>
+      </div>
+      <div class="form-group">
+          <label>StreetName</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+            </div>
+          </div>
+          <input   name="StreetName" #StreetName="ngModel"
+          [(ngModel)]="service.formData.StreetName"
+          class="form-control"
+          placeholder="StreetName" required  >
+        </div>
+      </div>
+      <div class="form-group">
+          <label>StreetNumber</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+            </div>
+          </div>
+          <input   name="StreetNumber" #StreetNumber="ngModel"
+          [(ngModel)]="service.formData.StreetNumber"
+          class="form-control"
+          placeholder="StreetNumber" required  >
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Payment Method</label>
+        <select name="PaymentMethod" #PaymentMethod="ngModel" [(ngModel)]="service.formData.PaymentMethod" class="form-control">
+          <option value="Bank transfer">Bank transfer</option>
+          <option value="Online bank transfer">Online bank transfer</option>
+          <option value="Paypal">Paypal</option>
+          <option value="Credit card">Credit card</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-8 offset-md-2">
+          <button type="submit" class="btn btn-lg btn-block">Order</button>
+        </div>
+      </div>
+    </form>
+
     </div>
     </div>
     <div class="col-md-2">

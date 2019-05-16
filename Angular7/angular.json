@@ -26,7 +26,7 @@
               "src/styles.css",
               "node_modules/ngx-toastr/toastr.css"
             ],
-            "scripts": [],
+            "scripts": ["../Angular7/node_modules/jquery/dist/jquery.min.js"],
             "es5BrowserSupport": true
           },
           "configurations": {
@@ -83,7 +83,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": ["../Angular7/node_modules/jquery/dist/jquery.min.js"],
             "assets": [
               "src/favicon.ico",
               "src/assets"

@@ -32,7 +32,8 @@ namespace ShopApp.Controllers
                 user.FirstName,
                 user.LastName,
                 user.Email,
-                user.UserName
+                user.UserName,
+                user.Id
             };
         }
 

@@ -1,0 +1,29 @@
+<app-home></app-home>
+<div class="jumbtron">
+  <h1 class="display-4 text-center">Order:</h1>
+  <hr>
+  <div class="row">
+    <div class="col-md-2">
+      <!-- <app-item-detail></app-item-detail> -->
+    </div>
+    <div class="col-md-8">
+        <table *ngIf="cartArray" class="table table-hover">
+            <th>Picture</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <tr *ngFor="let product of cartArray">
+              <img [src]="product.image" style="width: 50px; height: 50px;">
+              <td>{{product.name}}</td>
+              <td>{{product.price}}$</td>
+              <td>{{this.cartArray.quantity}}</td>
+              <td>Usuń</td>
+            </tr>
+          </table>
+          <p *ngIf="cartArray">To pay: {{this.amountToPay}}$</p>
+    </div>
+    </div>
+    <div class="col-md-2">
+      <!-- <app-item-detail-list></app-item-detail-list> -->
+    </div>
+  </div>

@@ -46,6 +46,7 @@ import { ProductsListComponent } from './main-page/products-list/products-list.c
 import { ProductDetailsComponent } from './main-page/product-details/product-details.component';
 import { NgPipesModule } from 'ngx-pipes';
 import { CartComponent } from './cart/cart.component';
+import { OrderComponent } from './order/order.component';
 
 
 @NgModule({
@@ -79,6 +80,7 @@ import { CartComponent } from './cart/cart.component';
     ProductsListComponent,
     ProductDetailsComponent,
     CartComponent,
+    OrderComponent,
   ],
   imports: [
     BrowserModule,

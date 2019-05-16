@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ShopApp.Models;
 
 namespace ShopApp.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class AuthenticationContextModelSnapshot : ModelSnapshot
+    [Migration("20190514171818_Order deleted")]
+    partial class Orderdeleted
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -283,48 +285,6 @@ namespace ShopApp.Migrations
                     b.ToTable("Items");
                 });
 
-            modelBuilder.Entity("ShopApp.Models.Order", b =>
-                {
-                    b.Property<int>("OrderID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("City");
-
-                    b.Property<string>("FirstName");
-
-                    b.Property<int?>("ItemID");
-
-                    b.Property<string>("LastName");
-
-                    b.Property<string>("OrderDate");
-
-                    b.Property<string>("OrderStatus");
-
-                    b.Property<string>("PaymentMethod");
-
-                    b.Property<int>("Quantity");
-
-                    b.Property<string>("StreetName");
-
-                    b.Property<string>("StreetNumber");
-
-                    b.Property<int>("TotalPrice");
-
-                    b.Property<string>("UserID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("ZipCode");
-
-                    b.HasKey("OrderID");
-
-                    b.HasIndex("ItemID");
-
-                    b.HasIndex("UserID");
-
-                    b.ToTable("Orders");
-                });
-
             modelBuilder.Entity("ShopApp.Models.Sex", b =>
                 {
                     b.Property<int>("SexID")
@@ -446,17 +406,6 @@ namespace ShopApp.Migrations
                     b.HasOne("ShopApp.Models.Size", "Size")
                         .WithMany()
                         .HasForeignKey("SizeID");
-                });
-
-            modelBuilder.Entity("ShopApp.Models.Order", b =>
-                {
-                    b.HasOne("ShopApp.Models.Item", "Item")
-                        .WithMany()
-                        .HasForeignKey("ItemID");
-
-                    b.HasOne("ShopApp.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserID");
                 });
 #pragma warning restore 612, 618
         }
