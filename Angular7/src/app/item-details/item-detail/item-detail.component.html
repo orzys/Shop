@@ -32,7 +32,7 @@
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
-            <i class="fas fa-list" [class.green-icon]="ItemDescription.valid" [class.red-icon]="ItemDescription.invalid && ItemDescription.touched"></i>
+            <i class="fas fa-comment-alt" [class.green-icon]="ItemDescription.valid" [class.red-icon]="ItemDescription.invalid && ItemDescription.touched"></i>
         </div>
       </div>
       <input name="ItemDescription" #ItemDescription="ngModel"
@@ -46,7 +46,7 @@
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
-            <i class="fas fa-list"></i>
+            <i class="far fa-image"></i>
         </div>
       </div>
       <input type="file" name="ItemImage"
@@ -58,7 +58,7 @@
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
-            <i class="fas fa-list" [class.green-icon]="ItemPrice.valid" [class.red-icon]="ItemPrice.invalid && ItemPrice.touched"></i>
+            <i class="fas fa-dollar-sign" [class.green-icon]="ItemPrice.valid" [class.red-icon]="ItemPrice.invalid && ItemPrice.touched"></i>
         </div>
       </div>
       <input name="ItemPrice" #ItemPrice="ngModel"
@@ -67,7 +67,7 @@
       placeholder="ItemPrice" required minlength="2">
     </div>
   </div>
-  <div class="form-group">
+  <!-- <div class="form-group">
       <label>Raiting</label>
     <div class="input-group">
       <div class="input-group-prepend">
@@ -80,7 +80,7 @@
       class="form-control"
       placeholder="ItemRaiting" required minlength="1">
     </div>
-  </div>
+  </div> -->
   <div class="form-group">
     <span>Category </span>
     <a class="btn btn-sm btn-dark text-white" (click)="addNewCategory(form)"><i class="fa fa-plus"></i></a>
@@ -90,34 +90,34 @@
   </div>
   <div class="form-group">
     <span>Color </span>
-    <a class="btn btn-sm btn-dark text-white" (click)="addNewColor(form)"> <i class="fa fa-plus"></i> Add Item</a>
+    <a class="btn btn-sm btn-dark text-white" (click)="addNewColor(form)"> <i class="fa fa-plus"></i></a>
     <select name="ColorID" #ColorID="ngModel" [(ngModel)]="service.formData.ColorID" class="form-control" required>
       <option *ngFor="let item of colorList" value="{{item.ColorID}}">{{item.ColorName}}</option>
     </select>
   </div>
   <div class="form-group">
     <span>Size </span>
-    <a class="btn btn-sm btn-dark text-white" (click)="addNewSize(form)"><i class="fa fa-plus"></i> Add Item</a>
+    <a class="btn btn-sm btn-dark text-white" (click)="addNewSize(form)"><i class="fa fa-plus"></i></a>
     <select name="SizeID" #SizeID="ngModel" [(ngModel)]="service.formData.SizeID" class="form-control" required>
       <option *ngFor="let item of sizesList" value="{{item.SizeID}}">{{item.SizeName}}</option>
     </select>
   </div>
   <div class="form-group">
     <span>Brand </span>
-    <a class="btn btn-sm btn-dark text-white" (click)="addNewBrand(form)"><i class="fa fa-plus"></i> Add Item</a>
+    <a class="btn btn-sm btn-dark text-white" (click)="addNewBrand(form)"><i class="fa fa-plus"></i></a>
     <select name="BrandID" #BrandID="ngModel" [(ngModel)]="service.formData.BrandID" class="form-control" required>
       <option *ngFor="let item of brandList" value="{{item.BrandID}}">{{item.BrandName}}</option>
     </select>
   </div>
   <div class="form-group">
     <span>Sex </span>
-    <a class="btn btn-sm btn-dark text-white" (click)="addNewSex(form)"><i class="fa fa-plus"></i> Add Item</a>
+    <a class="btn btn-sm btn-dark text-white" (click)="addNewSex(form)"><i class="fa fa-plus"></i></a>
     <select name="SexID" #CategSexIDoryID="ngModel" [(ngModel)]="service.formData.SexID" class="form-control" required>
       <option *ngFor="let item of sexList" value="{{item.SexID}}">{{item.SexName}}</option>
     </select>
   </div>
     <div class="form-group">
       <button name="firstSubmit" class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid"><i class="fas fa-save"></i> Add</button>
-      <button name="variantSubmit" class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid"><i class="fas fa-save"></i> Add next variant</button>
+      <!-- <button name="variantSubmit" class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid"><i class="fas fa-save"></i> Add next variant</button> -->
     </div>
 </form>

@@ -17,6 +17,9 @@ export class OrderService {
 
   ) { }
 
+  getOrderByUser(){
+    return this.http.get(this.rootURL+'/Orders/UserOrders').toPromise();
+  }
 
   getOrderList(){
     return this.http.get(this.rootURL+'/Orders').toPromise();

@@ -54,6 +54,7 @@ export class ProductsListComponent implements OnInit {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
         case 'ItemName': return this.compare(a.ItemName, b.ItemName, isAsc);
+        case 'ItemBrand': return this.compare(a.BrandName, b.BrandName, isAsc);
         case 'ItemPrice': return this.compareNumbers(a.ItemPrice, b.ItemPrice, isAsc);
         default: return 0;
       }

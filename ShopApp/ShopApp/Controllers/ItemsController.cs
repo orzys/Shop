@@ -96,6 +96,29 @@ namespace ShopApp.Controllers
             return Ok(item);
         }
 
+        [HttpGet("/api/Items/Category/{category}")]
+        public async Task<ActionResult<Item>> GetItemByCategory(string category)
+        {
+            var item = (from a in _context.Categories
+                        where a.CategoryName == category
+                        join b in _context.Items
+                        on a.CategoryID equals b.CategoryID
+                        
+
+                        select new
+                        {
+                            b.ItemID,
+                            b.ItemName,
+                            b.ItemQuantity,
+                            b.ItemDescription,
+                            b.ItemPrice,
+                            b.ItemRaiting,
+                            a.CategoryName,
+                            b.ColorID,
+                            b.ItemImage
+                        }).ToArray();
+            return Ok(item);
+        }
         // GET: api/Items/ItemName  // GET: api/Items/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Item>> GetItem(int id)

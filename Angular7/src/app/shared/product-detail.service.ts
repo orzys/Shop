@@ -1,3 +1,4 @@
+import { ListFromCategory } from './list-from-category.model';
 import { HttpClient } from '@angular/common/http';
 import { ItemDetail } from './item-detail.model';
 import { Injectable, EventEmitter } from '@angular/core';
@@ -11,6 +12,7 @@ export class ProductDetailService {
   readonly rootURL = 'http://localhost:61263/api';
   list: ProductDetail[];
   onAddToCartEvent: EventEmitter<any> = new EventEmitter();
+  listFromCategory: ListFromCategory[];
 
 
   constructor(
@@ -25,5 +27,9 @@ export class ProductDetailService {
     return this.http.get(this.rootURL+'/Items/details/'+name).toPromise().then(res => this.list = res as ProductDetail[]);
   }
 
+  getItemByCategory(name : string){
+    console.log(name);
+    return this.http.get(this.rootURL+'/Items/category/'+name).toPromise().then(res => this.listFromCategory = res as ListFromCategory[]);
+  }
 
 }

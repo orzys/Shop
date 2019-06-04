@@ -1,0 +1,29 @@
+<!-- <input type="text" [(ngModel)]="itName" (input)="Search()"> -->
+<!-- matSort (matSortChange)="sortData($event)" -->
+<table  class="table table-hover">
+
+  <th>Picture</th>
+  <th >Name</th>
+  <th>Price</th>
+  <!-- <tr *ngIf="!sortData; then thenBlock; else elseBlock"> -->
+    <!-- <div *ngIf="productService"> -->
+        <tr *ngFor="let id of productService.listFromCategory">
+            <img [src]="id.ItemImage" style="width: 50px; height: 50px;">
+            <td >{{id.ItemName}}</td>
+            <td>{{id.CategoryName}}</td>
+            <td>{{id.ColorID}}</td>
+            <td>{{id.ItemDescription}}</td>
+            <td>{{id.ItemID}}</td>
+            <td>{{id.ItemImage}}</td>
+            <td>{{id.ItemQuantity}}</td>
+            <td>{{id.ItemPrice}}</td>
+            <td>{{id.ItemRaiting}}</td>
+          </tr>
+        <!-- <tr #elseBlock *ngFor="let id of service.list" >
+            <img (click)="goToDetails(id.ItemName)" [src]="id.ItemImage" style="width: 50px; height: 50px;">
+            <td (click)="goToDetails(id.ItemName)">{{id.ItemName}}</td>
+            <td (click)="goToDetails(id.ItemName)">{{id.ItemPrice}}</td>
+            <td>{{id.ItemID}}</td>
+          </tr> -->
+        <!-- </div> -->
+</table>

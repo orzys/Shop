@@ -26,6 +26,6 @@ namespace ShopApp.Models
         public Nullable<int> ItemID { get; set; }
         public virtual Item Item { get; set; }
         public int Quantity { get; set; }
-        public int TotalPrice { get; set; }
+        public decimal TotalPrice { get; set; }
     }
 }

@@ -20,6 +20,10 @@ export class ItemDetailService {
     return this.http.get(this.rootURL+'/Items/'+id).toPromise();
   }
 
+  getItemByCategory(name : string){
+    return this.http.get(this.rootURL+'/Items/category/'+name).toPromise().then(res => this.list = res as ItemDetail[]);
+  }
+
   getItemList(){
     return this.http.get(this.rootURL+'/Items').toPromise();
    }
@@ -42,7 +46,6 @@ export class ItemDetailService {
 
   refreshCategories(){
     this.http.get(this.rootURL + '/Categories').toPromise().then(res => this.categoriesList = res as CategoryDetail[]);
-    console.log(this.http.get(this.rootURL + '/Categories').toPromise().then(res => this.categoriesList = res as CategoryDetail[]));
   }
 
   getItemByName(name: string){

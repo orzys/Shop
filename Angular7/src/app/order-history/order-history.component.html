@@ -1,0 +1,24 @@
+<app-home></app-home>
+<div class="jumbtron">
+  <h1 class="display-4 text-center">Your orders:</h1>
+  <hr />
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <table class="table table-hover">
+        <th>Date:</th>
+        <th>Quantity:</th>
+        <th>Price:</th>
+
+        <tr *ngFor="let id of orderService.list">
+          <td *ngIf="userDetails.Id == id.UserID">{{ id.OrderDate }}</td>
+          <td *ngIf="userDetails.Id == id.UserID">{{ id.Quantity }}</td>
+          <td *ngIf="userDetails.Id == id.UserID">{{ id.TotalPrice }}$</td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-md-2">
+      <!-- <app-item-detail-list></app-item-detail-list> -->
+    </div>
+  </div>
+</div>

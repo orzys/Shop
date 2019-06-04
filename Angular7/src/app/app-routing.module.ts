@@ -1,3 +1,7 @@
+import { OrderHistoryComponent } from './order-history/order-history.component';
+import { ItemDetailListComponent } from './item-details/item-detail-list/item-detail-list.component';
+import { ProductsListComponent } from './main-page/products-list/products-list.component';
+import { CategoriesListComponent } from './categories-list/categories-list.component';
 import { OrderComponent } from './order/order.component';
 import { CartComponent } from './cart/cart.component';
 import { MainPageComponent } from './main-page/main-page.component';
@@ -18,6 +22,7 @@ import { SizeDetailsComponent } from './size-details/size-details.component';
 import { SexDetailsComponent } from './sex-details/sex-details.component';
 import { ProductDetailsComponent } from './main-page/product-details/product-details.component';
 import { Order } from './shared/order.model';
+import { ListFromCategoryComponent } from './list-from-category/list-from-category.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/user/login', pathMatch: 'full'},
@@ -28,15 +33,17 @@ const routes: Routes = [
     ]},
   {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
   {path: 'forbidden', component: ForbiddenComponent},
-  {path: 'categories', component: CategoryDetailsComponent},
-  {path: 'brands', component: BrandDetailsComponent},
-  {path: 'sizes', component: SizeDetailsComponent},
-  {path: 'colors', component: ColorDetailsComponent},
-  {path: 'sexes', component: SexDetailsComponent},
-  {path: 'items', component: ItemDetailsComponent},
+  {path: 'categories', component: CategoryDetailsComponent, canActivate: [AuthGuard], data : {permittedRoles: ['Admin']}},
+  {path: 'brands', component: BrandDetailsComponent, canActivate: [AuthGuard], data : {permittedRoles: ['Admin']}},
+  {path: 'sizes', component: SizeDetailsComponent, canActivate: [AuthGuard], data : {permittedRoles: ['Admin']}},
+  {path: 'colors', component: ColorDetailsComponent, canActivate: [AuthGuard], data : {permittedRoles: ['Admin']}},
+  {path: 'sexes', component: SexDetailsComponent, canActivate: [AuthGuard], data : {permittedRoles: ['Admin']}},
+  {path: 'items', component: ItemDetailsComponent, canActivate: [AuthGuard], data : {permittedRoles: ['Admin']}},
   {path: 'shop', component: MainPageComponent},
   {path: 'cart', component: CartComponent},
   {path: 'order', component: OrderComponent},
+  {path: 'orders', component: OrderHistoryComponent},
+  {path: 'items/category/:name', component: ListFromCategoryComponent},
     // children: [
     //   {path: 'details/:id', component: ProductDetailsComponent}
     // ]},

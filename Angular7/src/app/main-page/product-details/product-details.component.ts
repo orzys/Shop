@@ -1,3 +1,4 @@
+import { HomeComponent } from './../../home/home.component';
 import { ItemDetail } from './../../shared/item-detail.model';
 import { ItemDetailService } from './../../shared/item-detail.service';
 import { Component, OnInit, EventEmitter } from '@angular/core';
@@ -24,10 +25,17 @@ export class ProductDetailsComponent implements OnInit {
     private toastr: ToastrService
   ) { }
 
+  userDetails;
+  productInCartQuantity = 0;
+  cartArray: any
+  amountToPay: number = 0;
+  quantityInCart = 0;
 
   ngOnInit() {
     console.log(this.productService);
   }
+
+
 
   backToShop(){
     this.router.navigate(["shop"]);
@@ -43,6 +51,8 @@ export class ProductDetailsComponent implements OnInit {
       this.productService.onAddToCartEvent.emit(cartArray.length);
       console.log("Product set to local storage");
     }
+
+
 
     mergeProductsInCart(cartArray, id) {
       var duplicate = false;

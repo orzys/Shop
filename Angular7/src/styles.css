@@ -14,6 +14,29 @@ body{
   background-color: white;
 }
 
+.addtocartinput{
+  float: right;
+}
+
+#QuantityCart .p1[data-count]:after{
+  position:absolute;
+  right:10%;
+  top:8%;
+  content: attr(data-count);
+  font-size:40%;
+  padding:.2em;
+  border-radius:50%;
+  line-height:1em;
+  color: white;
+  background:rgba(255,0,0,.85);
+  text-align:center;
+  min-width: 1em;
+}
+
+.QuantityCart{
+  font-style: normal;
+}
+
 .green-icon{
   color: #28a745;
 }

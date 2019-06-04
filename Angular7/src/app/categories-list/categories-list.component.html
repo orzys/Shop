@@ -1,0 +1,10 @@
+<table class="table table-hover">
+  <th>Categories</th>
+<tr *ngFor="let cd of categoriesService.list">
+  <td (click)="goToCategory(cd.CategoryName)">{{cd.CategoryName}}</td>
+</tr>
+</table>
+<!-- <div class="col-md-2">
+  <div *ngFor="let item of itemsFromCategory" >
+    <div>{{item.CategoryName}}</div>
+</div> -->

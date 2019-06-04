@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ShopApp.Models;
@@ -14,6 +16,7 @@ namespace ShopApp.Controllers
     public class OrdersController : ControllerBase
     {
         private readonly ApplicationContext _context;
+        private UserManager<ApplicationUser> _userManager;
 
         public OrdersController(ApplicationContext context)
         {
@@ -40,6 +43,27 @@ namespace ShopApp.Controllers
 
             return order;
         }
+
+        //[HttpGet("/api/Orders/UserOrders")]
+        //public async Task<ActionResult<Order>> GetOrdersByUser()
+        //{
+        //    string userId = User.Claims.FirstOrDefault(c => c.Type == "UserID").Value;
+        //    var user = await _userManager.FindByIdAsync(userId);
+        //    var userIDx = user.Id;
+
+        //    var orders = (from a in _context.Orders
+        //                where a.UserID == userIDx
+                        
+        //                select new
+        //                {
+        //                    a.OrderDate,
+        //                    a.OrderID,
+        //                    a.OrderStatus,
+        //                }).ToArray();
+
+
+        //    return Ok(orders);
+        //}
 
         // PUT: api/Orders/5
         [HttpPut("{id}")]

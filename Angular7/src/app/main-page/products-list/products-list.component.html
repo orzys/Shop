@@ -1,16 +1,16 @@
-<input type="text" [(ngModel)]="itName" (input)="Search()">
-{{itName}}
+<input type="text" class="form-control" placeholder="Search..." [(ngModel)]="itName" (input)="Search()">
 <table matSort (matSortChange)="sortData($event)" class="table table-hover">
 
   <th>Picture</th>
   <th mat-sort-header="ItemName">Name</th>
+  <th mat-sort-header="ItemBrand">Brand</th>
   <th mat-sort-header="ItemPrice">Price</th>
   <!-- <tr *ngIf="!sortData; then thenBlock; else elseBlock"> -->
         <tr *ngFor="let id of service.list">
-            <img (click)="goToDetails(id.ItemName)" [src]="id.ItemImage" style="width: 50px; height: 50px;">
+            <img (click)="goToDetails(id.ItemName)" [src]="id.ItemImage" style="width: 100px; height: 70px;">
             <td (click)="goToDetails(id.ItemName)">{{id.ItemName}}</td>
-            <td (click)="goToDetails(id.ItemName)">{{id.ItemPrice}}</td>
-            <td>{{id.ItemID}}</td>
+            <td (click)="goToDetails(id.ItemName)">{{id.BrandName}}</td>
+            <td (click)="goToDetails(id.ItemName)">{{id.ItemPrice}}$</td>
           </tr>
         <!-- <tr #elseBlock *ngFor="let id of service.list" >
             <img (click)="goToDetails(id.ItemName)" [src]="id.ItemImage" style="width: 50px; height: 50px;">

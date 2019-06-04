@@ -6,26 +6,25 @@
     <div class="col-md-2">
       <!-- <app-item-detail></app-item-detail> -->
     </div>
-    <div class="col-md-8">
+    <div id="cartArr" class="col-md-8">
       <table *ngIf="cartArray" class="table table-hover">
         <th>Picture</th>
         <th>Name</th>
         <th>Price</th>
         <th>Quantity</th>
+        <th>Change quantity</th>
         <tr *ngFor="let product of cartArray">
           <img [src]="product.image" style="width: 50px; height: 50px;">
-          <td>{{product.id}}</td>
           <td>{{product.name}}</td>
           <td>{{product.price}}$</td>
           <td>{{product.quantity}}</td>
-          <input type="text" value="product.quantity" placeholder="Quantity" #quantity="ngModel" [(ngModel)]="product.quantity" (change)="updateAmount()">
-          <td>Usuń</td>
+          <input type="text" value="product.quantity" class="form-group" placeholder="Quantity" #quantity="ngModel" [(ngModel)]="product.quantity" (change)="updateAmount()">
         </tr>
       </table>
-      <p *ngIf="cartArray">To pay: {{this.amountToPay}}$</p>
+      <p *ngIf="cartArray">To pay: {{this.amountToPay | number:'1.2-2'}}$</p>
       <h1 *ngIf="!cartArray" class="text-center">Cart is empty</h1>
     <button *ngIf="cartArray" class="btn btn-danger" (click)="clearCart()">Clear cart</button>
-      <button id="showFormButton" class="btn btn-info">Show form</button>
+      <button id="showFormButton" class="btn btn-info float-right">Order</button>
 
     <form id="dataFormInOrder" #form="ngForm" autocomplete="off" (submit)="orderItems(form)">
       <div class="form-group">
@@ -33,11 +32,12 @@
         <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text bg-white">
+                <i class="fas fa-user" [class.green-icon]="FirstName.valid" [class.red-icon]="FirstName.invalid && FirstName.touched"></i>
             </div>
           </div>
-          <input   name="FirstName" #FirstName="ngModel"
+          <input [value]="this.userDetails.FirstName"  name="FirstName" #FirstName="ngModel"
           [(ngModel)]="service.formData.FirstName"
-          class="form-control"
+          class="form-control" pattern="[A-Za-z]{1,15}"
           placeholder="FirstName" required  >
         </div>
       </div>
@@ -46,11 +46,12 @@
         <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text bg-white">
+                <i class="fas fa-user" [class.green-icon]="LastName.valid" [class.red-icon]="LastName.invalid && LastName.touched"></i>
             </div>
           </div>
-          <input   name="LastName" #LastName="ngModel"
+          <input [value]="this.userDetails.LastName"  name="LastName" #LastName="ngModel"
           [(ngModel)]="service.formData.LastName"
-          class="form-control"
+          class="form-control" pattern="[A-Za-z]{1,15}"
           placeholder="LastName" required  >
         </div>
       </div>
@@ -59,11 +60,12 @@
         <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text bg-white">
+                <i class="fas fa-envelope" [class.green-icon]="ZipCode.valid" [class.red-icon]="ZipCode.invalid && ZipCode.touched"></i>
             </div>
           </div>
-          <input   name="ZipCode" #ZipCode="ngModel"
+          <input [value]="this.userDetails.ZipCode"  name="ZipCode" #ZipCode="ngModel"
           [(ngModel)]="service.formData.ZipCode"
-          class="form-control"
+          class="form-control" pattern="[0-9]{2}\-[0-9]{3}"
           placeholder="ZipCode" required  >
         </div>
       </div>
@@ -72,11 +74,12 @@
         <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text bg-white">
+                <i class="fas fa-city" [class.green-icon]="City.valid" [class.red-icon]="City.invalid && City.touched"></i>
             </div>
           </div>
-          <input   name="City" #City="ngModel"
+          <input [value]="this.userDetails.City" name="City" #City="ngModel"
           [(ngModel)]="service.formData.City"
-          class="form-control"
+          class="form-control" pattern="[A-Za-z]{1,15}"
           placeholder="City" required  >
         </div>
       </div>
@@ -85,11 +88,12 @@
         <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text bg-white">
+                <i class="fas fa-road" [class.green-icon]="StreetName.valid" [class.red-icon]="StreetName.invalid && StreetName.touched"></i>
             </div>
           </div>
-          <input   name="StreetName" #StreetName="ngModel"
+          <input [value]="this.userDetails.StreetName"  name="StreetName" #StreetName="ngModel"
           [(ngModel)]="service.formData.StreetName"
-          class="form-control"
+          class="form-control" pattern="[A-Za-z]{1,15}"
           placeholder="StreetName" required  >
         </div>
       </div>
@@ -98,17 +102,18 @@
         <div class="input-group">
           <div class="input-group-prepend">
             <div class="input-group-text bg-white">
+                <i class="fas fa-road" [class.green-icon]="StreetNumber.valid" [class.red-icon]="StreetNumber.invalid && StreetNumber.touched"></i>
             </div>
           </div>
-          <input   name="StreetNumber" #StreetNumber="ngModel"
+          <input  [value]="this.userDetails.SteerNumber" name="StreetNumber" #StreetNumber="ngModel"
           [(ngModel)]="service.formData.StreetNumber"
-          class="form-control"
+          class="form-control" pattern="[1-9A-Z]{1,5}"
           placeholder="StreetNumber" required  >
         </div>
       </div>
       <div class="form-group">
         <label>Payment Method</label>
-        <select name="PaymentMethod" #PaymentMethod="ngModel" [(ngModel)]="service.formData.PaymentMethod" class="form-control">
+        <select required name="PaymentMethod" #PaymentMethod="ngModel" [(ngModel)]="service.formData.PaymentMethod" class="form-control">
           <option value="Bank transfer">Bank transfer</option>
           <option value="Online bank transfer">Online bank transfer</option>
           <option value="Paypal">Paypal</option>
@@ -117,7 +122,7 @@
       </div>
       <div class="form-row">
         <div class="form-group col-md-8 offset-md-2">
-          <button type="submit" class="btn btn-lg btn-block">Order</button>
+          <button [disabled]="!form.valid"  type="submit" class="btn btn-lg btn-block">Order</button>
         </div>
       </div>
     </form>

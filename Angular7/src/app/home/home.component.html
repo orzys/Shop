@@ -1,23 +1,34 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-dark text-white">
   <a routerLink="/shop" class="navbar-brand text-white">Shop</a>
+  <!-- <a routerLink="/cart" class="navbar-brand text-white">Cart</a> -->
+
+  <a routerLink="/cart" id="QuantityCart" *ngIf="!null" class="navbar-brand text-white"><i class="fas fa-shopping-cart">{{this.getQuantity()}}</i></a>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
   <ul class="navbar-nav mr-auto">
     <li class="nav-item dropdown">
-      <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin panel</a>
+      <a *ngIf="this.getRole()=='Admin'" class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin panel</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a routerLink="/categories" class="dropdown-item" href="#">Categories</a>
-          <a routerLink="/brands" class="dropdown-item" href="#">Brands</a>
-          <a routerLink="/sizes" class="dropdown-item" href="#">Sizes</a>
-          <a routerLink="/colors" class="dropdown-item" href="#">Colors</a>
-          <a routerLink="/sexes" class="dropdown-item" href="#">Sexes</a>
-          <a routerLink="/items" class="dropdown-item" href="#">Items</a>
-          <a routerLink="/cart" class="dropdown-item" href="#">Cart</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a  routerLink="/categories" class="dropdown-item" href="#">Categories</a>
+          <a  routerLink="/brands" class="dropdown-item" href="#">Brands</a>
+          <a  routerLink="/sizes" class="dropdown-item" href="#">Sizes</a>
+          <a  routerLink="/colors" class="dropdown-item" href="#">Colors</a>
+          <a  routerLink="/sexes" class="dropdown-item" href="#">Sexes</a>
+          <a  routerLink="/items" class="dropdown-item" href="#">Items</a>
+          <!-- <div class="dropdown-divider"></div> -->
+          <!-- <a *ngIf="this.userDetails"  routerLink="/orders" class="dropdown-item" href="#">Orders</a> -->
         </div>
     </li>
   </ul>
-  <button class="btn btn-danger my-2 my-sm-0" (click)="onLogout()">Logout</button>
+  <ul class="navbar-nav">
+    <li class="nav-item dropdown">
+      <a *ngIf="this.userDetails" class="float-right nav-link text-white dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{this.userDetails.UserName}}</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a *ngIf="this.userDetails" routerLink="/orders" class="dropdown-item" href="#">Orders</a>
+          <a class="dropdown-item" href="#" (click)="onLogout()">Logout</a>
+        </div>
+    </li>
+  </ul>
+  <!-- <button class="btn btn-danger " (click)="onLogout()">Logout</button> -->
   </div>
 </nav>
 <!--
@@ -41,3 +52,7 @@
       </li>
   </ul>
 </div> -->
+
+<script>
+
+</script>

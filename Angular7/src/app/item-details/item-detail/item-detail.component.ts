@@ -150,6 +150,7 @@ export class ItemDetailComponent implements OnInit {
   }
 
   insertRecord(form: NgForm){
+    this.service.formData.ItemRaiting=0;
     this.service.postItemDetail().subscribe(
       res => {
         this.resetForm();
